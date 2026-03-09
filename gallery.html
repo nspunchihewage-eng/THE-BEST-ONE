@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Croc Kingdom Nilwala River</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Rye&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css?v=2.1">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo_transparent.png">
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="scrolled">
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo_transparent.png" alt="Croc Kingdom Logo" class="logo-img">
+                <div class="logo-text">
+                    <h2>CROC <span>KINGDOM</span></h2>
+                    <span class="logo-slogan">Enter The Realm of the <span class="slogan-highlight">River</span>
+                        Giants</span>
+                </div>
+            </a>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#packages">Packages</a></li>
+            <li><a href="gallery.html" class="highlight">Gallery</a></li>
+            <li><a href="wildlife.html">Wildlife Info</a></li>
+            <li class="lang-switcher">
+                <div class="lang-selected"><img src="https://flagcdn.com/w20/gb.png" alt="English"> EN <i
+                        class="fas fa-chevron-down"></i></div>
+                <ul class="lang-dropdown glassmorphism">
+                    <li data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</li>
+                    <li data-lang="si"><img src="https://flagcdn.com/w20/lk.png" alt="Sinhala"> සිංහල</li>
+                    <li data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="German"> Deutsch</li>
+                    <li data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Russian"> Русский</li>
+                    <li data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="French"> Français</li>
+                </ul>
+            </li>
+            <li><a href="index.html#contact" class="btn-book">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header gallery-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h3 class="page-subtitle fade-in" data-t="gal_hero_subtitle">Capturing Nature</h3>
+            <h1 class="page-title fade-in delay-1" data-t="gal_hero_title">Our <span class="highlight">Wildlife</span>
+                Gallery</h1>
+        </div>
+
+        <!-- Weather & River Status Widget -->
+        <div class="weather-widget fade-in delay-3">
+            <div class="weather-item">
+                <i class="fas fa-cloud-sun icon-glow"></i>
+                <div class="weather-info">
+                    <span id="current-temp">29°C</span>
+                    <label>Matara, SL</label>
+                </div>
+            </div>
+            <div class="weather-divider"></div>
+            <div class="weather-item">
+                <i class="fas fa-water icon-glow"></i>
+                <div class="weather-info">
+                    <span id="river-status">Good</span>
+                    <label data-t="river_label">River Status</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Extended Gallery Section -->
+    <section class="gallery-section" style="padding-top: 5rem;">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge center" data-t="gallery">Discover</div>
+                <h2 class="section-title" data-t="gal_title">Birds & <span class="highlight">Beasts</span></h2>
+                <p class="section-subtitle" data-t="gal_subtitle">A stunning collection of majestic crocodiles,
+                    beautiful storks (Kokku), and
+                    scenic views from the Nilwala river.</p>
+            </div>
+
+            <div class="gallery-grid expanded" id="dynamic-gallery-full">
+                <div
+                    style="padding: 3rem; text-align: center; color: var(--text-muted); width: 100%; grid-column: 1 / -1; border: 1px dashed rgba(255,255,255,0.1); border-radius: 15px;">
+                    <i class="fas fa-spinner fa-spin"
+                        style="margin-right: 10px; font-size: 1.5rem; color: var(--primary);"></i>
+                    <br><br>Loading latest gallery from Firebase...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo-link">
+                        <img src="assets/logo_transparent.png" alt="Croc Kingdom Logo" class="footer-logo">
+                        <div class="logo-text">
+                            <h2>CROC <span>KINGDOM</span></h2>
+                            <span class="logo-slogan">Enter The Realm of the <span class="slogan-highlight">River</span>
+                                Giants</span>
+                        </div>
+                    </a>
+                    <p data-t="footer_desc">Experience the thrill of the wild with Matara's #1 premier crocodile boat
+                        safari.</p>
+                </div>
+                <div class="footer-links">
+                    <h3 data-t="footer_links">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html" data-t="nav_home">Home</a></li>
+                        <li><a href="services.html" data-t="nav_services">Services</a></li>
+                        <li><a href="index.html#packages" data-t="nav_packages">Tour Packages</a></li>
+                        <li><a href="gallery.html" data-t="nav_gallery">Gallery</a></li>
+                        <li><a href="wildlife.html" data-t="nav_wildlife">Wildlife Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3 data-t="footer_follow">Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Croc Kingdom - Nilwala River Boat Safari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/94711048555" class="floating-whatsapp fade-in delay-3" target="_blank"
+        aria-label="Chat on WhatsApp"
+        style="position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+
+    <!-- Sticky Mobile Bottom Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+94711048555" class="msb-btn msb-call"><i class="fas fa-phone-alt"></i> Call</a>
+        <a href="https://wa.me/94711048555?text=Hello,%20I'm%20interested%20in%20booking%20a%20Safari%20Tour!"
+            target="_blank" class="msb-btn msb-book"><i class="fas fa-calendar-check"></i> Book Now</a>
+        <a href="https://wa.me/94711048555" target="_blank" class="msb-btn msb-wa"><i class="fab fa-whatsapp"></i>
+            Chat</a>
+    </div>
+
+    <!-- Firebase SDK Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+
+    <!-- Vanilla Tilt JS for 3D interactions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

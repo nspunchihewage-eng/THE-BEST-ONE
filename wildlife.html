@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Info - Croc Kingdom Nilwala River</title>
+    <meta name="description"
+        content="Learn fascinating facts about the crocodiles and birds of the Nilwala River, Matara.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Rye&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css?v=2.1">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo_transparent.png">
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="scrolled">
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo_transparent.png" alt="Croc Kingdom Logo" class="logo-img">
+                <div class="logo-text">
+                    <h2>CROC <span>KINGDOM</span></h2>
+                    <span class="logo-slogan">Enter The Realm of the <span class="slogan-highlight">River</span>
+                        Giants</span>
+                </div>
+            </a>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#packages">Packages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="wildlife.html" class="highlight">Wildlife Info</a></li>
+            <li class="lang-switcher">
+                <div class="lang-selected"><img src="https://flagcdn.com/w20/gb.png" alt="English"> EN <i
+                        class="fas fa-chevron-down"></i></div>
+                <ul class="lang-dropdown glassmorphism">
+                    <li data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</li>
+                    <li data-lang="si"><img src="https://flagcdn.com/w20/lk.png" alt="Sinhala"> සිංහල</li>
+                    <li data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="German"> Deutsch</li>
+                    <li data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Russian"> Русский</li>
+                    <li data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="French"> Français</li>
+                </ul>
+            </li>
+            <li><a href="index.html#contact" class="btn-book">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header wildlife-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h3 class="page-subtitle fade-in" data-t="wild_hero_subtitle">NATURE'S WONDERS</h3>
+            <h1 class="page-title fade-in delay-1" data-t="wild_hero_title">Discover Nilwala's <span
+                    class="highlight">Wildlife</span></h1>
+        </div>
+
+        <!-- Weather & River Status Widget -->
+        <div class="weather-widget fade-in delay-3">
+            <div class="weather-item">
+                <i class="fas fa-cloud-sun icon-glow"></i>
+                <div class="weather-info">
+                    <span id="current-temp">29°C</span>
+                    <label>Matara, SL</label>
+                </div>
+            </div>
+            <div class="weather-divider"></div>
+            <div class="weather-item">
+                <i class="fas fa-water icon-glow"></i>
+                <div class="weather-info">
+                    <span id="river-status">Good</span>
+                    <label data-t="river_label">River Status</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Wildlife Info Section -->
+    <section class="about-section" style="padding-top: 5rem;">
+        <div class="container">
+            <!-- Crocodiles Section -->
+            <div class="section-header text-center">
+                <div class="section-badge center" data-t="wild_badge">The Apex Predator</div>
+                <h2 class="section-title" data-t="wild_title_croc">The Saltwater <span
+                        class="highlight">Crocodile</span></h2>
+                <p class="section-subtitle" data-t="wild_subtitle_croc">Fascinating facts about the ancient giants
+                    ruling the Nilwala River.</p>
+            </div>
+
+            <div class="stats stats-grid-4 mb-large" style="margin-bottom: 5rem;">
+                <div class="stat-item glass-panel fade-up">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"><i
+                            class="fas fa-tooth"></i></div>
+                    <h3 style="font-size: 1.5rem;" data-t="wild_stat_teeth_num">66 Teeth</h3>
+                    <p style="text-transform: none;" data-t="wild_stat_teeth_desc">They constantly replace teeth. Over a
+                        lifespan, they can grow up to
+                        8,000 teeth!</p>
+                </div>
+                <div class="stat-item glass-panel fade-up delay-1">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"><i
+                            class="fas fa-hourglass-half"></i></div>
+                    <h3 style="font-size: 1.5rem;" data-t="wild_stat_age_num">70+ Years</h3>
+                    <p style="text-transform: none;" data-t="wild_stat_age_desc">These ancient reptiles have incredibly
+                        long lifespans, often
+                        outliving humans.</p>
+                </div>
+                <div class="stat-item glass-panel fade-up delay-2">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"><i
+                            class="fas fa-hammer"></i></div>
+                    <h3 style="font-size: 1.5rem;" data-t="wild_stat_bite_num">Strongest Bite</h3>
+                    <p style="text-transform: none;" data-t="wild_stat_bite_desc">They have the strongest bite force of
+                        any living animal (over 3,700
+                        PSI).</p>
+                </div>
+                <div class="stat-item glass-panel fade-up delay-3">
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"><i
+                            class="fas fa-ruler-horizontal"></i></div>
+                    <h3 style="font-size: 1.5rem;" data-t="wild_stat_size_num">Massive Size</h3>
+                    <p style="text-transform: none;" data-t="wild_stat_size_desc">Males can reach lengths of up to 6
+                        meters (20 feet) and weigh over
+                        1,000 kg.</p>
+                </div>
+            </div>
+
+            <div class="about-grid" style="align-items: flex-start; margin-bottom: 8rem;">
+                <div class="about-image slide-in-left">
+                    <img src="assets/crocodile_close_1772769164834.png" alt="Close up of a saltwater crocodile">
+                    <div class="image-accent"></div>
+                </div>
+                <div class="about-text slide-in-right">
+                    <h2 data-t="wild_ancient_title">Ancient Survivors <br>of the <span class="highlight">Deep</span>
+                    </h2>
+                    <p data-t="wild_ancient_p1">The crocodiles found in the Nilwala River are primarily
+                        <strong>Saltwater Crocodiles</strong>
+                        (Crocodylus porosus). Despite their name, they are extremely adaptable and thrive in the
+                        brackish and freshwater environments of the river.
+                    </p>
+                    <p data-t="wild_ancient_p2">They are ambush predators, capable of remaining perfectly still in the
+                        murky water for hours,
+                        with only their eyes and nostrils exposed above the surface.</p>
+                    <p data-t="wild_ancient_didyouknow"><strong>Did you know?</strong> Crocodiles actually have
+                        excellent night vision. While on our
+                        sunset tours, their eyes can sometimes be seen glowing red when light reflects off them in the
+                        dark.</p>
+                </div>
+            </div>
+
+            <!-- Birds Section -->
+            <div class="section-header text-center" style="margin-top: 5rem;">
+                <div class="section-badge center" data-t="wild_badge_birds">Aerial Beauty</div>
+                <h2 class="section-title" data-t="wild_title_birds">Birds of the <span class="highlight">River</span>
+                </h2>
+                <p class="section-subtitle" data-t="wild_subtitle_birds">Nilwala isn't just about crocodiles; it's a
+                    paradise for exotic bird
+                    watchers too.</p>
+            </div>
+
+            <div class="bird-showcase-grid" style="margin-top: 4rem;">
+                <!-- Bird 1 -->
+                <div class="bird-card glassmorphism slide-up">
+                    <div class="bird-card-image">
+                        <img src="assets/flying_storks_1772771273573.png" alt="Storks on Nilwala River">
+                    </div>
+                    <div class="bird-card-content">
+                        <div class="bird-tag" data-t="bird_tag_1">Local Giant</div>
+                        <h3 data-t="bird_title_1">The Painted Stork</h3>
+                        <p data-t="bird_desc_1">Locally known as 'Kokku', these majestic waders are a common sight along
+                            the Nilwala banks.
+                            With their bright yellow beaks and delicate pink-tinged wings, they create a stunning
+                            silhouette against the river canopy.</p>
+                    </div>
+                </div>
+
+                <!-- Bird 2 -->
+                <div class="bird-card glassmorphism slide-up delay-1">
+                    <div class="bird-card-image">
+                        <img src="assets/white_egret_1772771256035.png" alt="White Egret Nilwala">
+                    </div>
+                    <div class="bird-card-content">
+                        <div class="bird-tag" data-t="bird_tag_2">Silent Hunter</div>
+                        <h3 data-t="bird_title_2">Great White Egret</h3>
+                        <p data-t="bird_desc_2">A symbol of patience and grace. Egrets are master hunters, standing
+                            perfectly motionless in
+                            the shallows for minutes before striking with lightning speed to catch small fish and river
+                            prawns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo-link">
+                        <img src="assets/logo_transparent.png" alt="Croc Kingdom Logo" class="footer-logo">
+                        <div class="logo-text">
+                            <h2>CROC <span>KINGDOM</span></h2>
+                            <span class="logo-slogan">Enter The Realm of the <span class="slogan-highlight">River</span>
+                                Giants</span>
+                        </div>
+                    </a>
+                    <p data-t="footer_desc">Experience the thrill of the wild with Matara's #1 premier crocodile boat
+                        safari.</p>
+                </div>
+                <div class="footer-links">
+                    <h3 data-t="footer_links">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html" data-t="nav_home">Home</a></li>
+                        <li><a href="services.html" data-t="nav_services">Services</a></li>
+                        <li><a href="index.html#packages" data-t="nav_packages">Tour Packages</a></li>
+                        <li><a href="gallery.html" data-t="nav_gallery">Gallery</a></li>
+                        <li><a href="wildlife.html" data-t="nav_wildlife">Wildlife Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3 data-t="footer_follow">Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Croc Kingdom - Nilwala River Boat Safari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/94711048555" class="floating-whatsapp fade-in delay-3" target="_blank"
+        aria-label="Chat on WhatsApp"
+        style="position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+
+    <!-- Sticky Mobile Bottom Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+94711048555" class="msb-btn msb-call"><i class="fas fa-phone-alt"></i> <span
+                data-t="call">Call</span></a>
+        <a href="https://wa.me/94711048555?text=Hello,%20I'm%20interested%20in%20booking%20a%20Safari%20Tour!"
+            target="_blank" class="msb-btn msb-book"><i class="fas fa-calendar-check"></i> <span data-t="book_now">Book
+                Now</span></a>
+        <a href="https://wa.me/94711048555" target="_blank" class="msb-btn msb-wa"><i class="fab fa-whatsapp"></i>
+            <span data-t="chat">Chat</span></a>
+    </div>
+
+    <!-- Firebase SDK Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+
+    <!-- Vanilla Tilt JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

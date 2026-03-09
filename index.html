@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Croc Kingdom - Nilwala River Boat Safari</title>
+    <meta name="description"
+        content="Experience the ultimate crocodile watching river safari at Croc Kingdom on the Nilwala River, Matara.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Rye&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css?v=2.1">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo_transparent.png">
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body class="dark-theme">
+    <!-- Premium Pre-loader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="assets/logo_transparent.png" alt="Croc Kingdom Logo">
+                <div class="logo-fill"></div>
+            </div>
+            <div class="loader-bar">
+                <div class="bar-progress"></div>
+            </div>
+            <p class="loader-text">Preparing Your Adventure...</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="logo">
+            <a href="#home" class="logo-link">
+                <img src="assets/logo_transparent.png" alt="Croc Kingdom Logo" class="logo-img">
+                <div class="logo-text">
+                    <h2>CROC <span>KINGDOM</span></h2>
+                    <span class="logo-slogan">Enter The Realm of the <span class="slogan-highlight">River</span>
+                        Giants</span>
+                </div>
+            </a>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="wildlife.html">Wildlife Info</a></li>
+            <li class="lang-switcher">
+                <div class="lang-selected"><img src="https://flagcdn.com/w20/gb.png" alt="English"> EN <i
+                        class="fas fa-chevron-down"></i></div>
+                <ul class="lang-dropdown glassmorphism">
+                    <li data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</li>
+                    <li data-lang="si"><img src="https://flagcdn.com/w20/lk.png" alt="Sinhala"> සිංහල</li>
+                    <li data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="German"> Deutsch</li>
+                    <li data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Russian"> Русский</li>
+                    <li data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="French"> Français</li>
+                </ul>
+            </li>
+            <li><a href="#contact" class="btn-book">Book Now</a></li>
+        </ul>
+    </nav>
+
+
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <!-- Cinematic Video Background -->
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline id="hero-video" class="hero-video">
+                <source src="assets/safari_bg_cinematic.mp4" type="video/mp4">
+                <!-- Fallback image is already handled by hero-overlay and CSS background -->
+            </video>
+        </div>
+
+        <!-- Weather & River Status Widget -->
+        <div class="weather-widget fade-in delay-3">
+            <div class="weather-item">
+                <i class="fas fa-cloud-sun icon-glow"></i>
+                <div class="weather-info">
+                    <span id="current-temp">29°C</span>
+                    <label>Matara, SL</label>
+                </div>
+            </div>
+            <div class="weather-divider"></div>
+            <div class="weather-item">
+                <i class="fas fa-water icon-glow"></i>
+                <div class="weather-info">
+                    <span id="river-status">Good</span>
+                    <label data-t="river_label">River Status</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- News Ticker -->
+        <div class="news-ticker-container fade-in delay-3">
+            <div class="news-ticker" id="dynamic-news">
+                <span data-t="news_1"><i class="fas fa-crown" style="color:var(--primary);"></i> Home to the largest
+                    living saltwater crocodile in Sri Lanka</span>
+                <span data-t="news_2"><i class="fas fa-history" style="color:var(--primary);"></i> Encounter the oldest
+                    known crocodile in the country</span>
+                <span data-t="news_highest_pop_dup"><i class="fas fa-chart-line" style="color:var(--primary);"></i>
+                    Highest crocodile population in Sri Lanka (80 - 100 individuals)</span>
+                <span data-t="news_breathtaking_evenings_dup"><i class="fas fa-dove" style="color:var(--primary);"></i>
+                    Witness breathtaking evenings as thousands of birds gather on the river island</span>
+                <!-- Duplicated for seamless loop -->
+                <span data-t="news_largest_croc_dup"><i class="fas fa-crown" style="color:var(--primary);"></i> Home to
+                    the largest living saltwater crocodile in Sri Lanka</span>
+                <span data-t="news_oldest_croc_dup"><i class="fas fa-history" style="color:var(--primary);"></i>
+                    Encounter the oldest known crocodile in the country</span>
+                <span data-t="news_highest_pop_dup"><i class="fas fa-chart-line" style="color:var(--primary);"></i>
+                    Highest crocodile population in Sri Lanka (80 - 100 individuals)</span>
+                <span data-t="news_breathtaking_evenings_dup"><i class="fas fa-dove" style="color:var(--primary);"></i>
+                    Witness breathtaking evenings as thousands of birds gather on the river island</span>
+            </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h3 class="hero-slogan-top fade-in" data-t="hero_slogan_top">ENTER THE REALM</h3>
+            <h1 class="title giant-title fade-in delay-1" data-t="hero_title"><span class="highlight">Giants</span> of
+                the River</h1>
+            <p class="description fade-in delay-2" data-t="hero_description">Embark on a breathtaking boat safari.
+                Witness massive saltwater
+                crocodiles in their natural habitat with our safe and expert-guided tours.</p>
+
+            <div class="hero-buttons fade-in delay-3">
+                <a href="#packages" class="btn-primary" data-t="hero_explore_packages">Explore Packages <i
+                        class="fas fa-arrow-right"></i></a>
+                <a href="gallery.html" class="btn-secondary-light" data-t="hero_watch_tour"><i class="fas fa-play"></i>
+                    Watch Tour</a>
+            </div>
+        </div>
+        <div class="scroll-indicator fade-in delay-3">
+            <a href="#about">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text slide-in-left">
+                    <div class="section-badge" data-t="about_welcome_badge">Welcome</div>
+                    <h2 data-t="about_title">Experience <span class="highlight">Croc Kingdom</span></h2>
+                    <p data-t="about_p1">Located in the heart of Matara, the Nilwala River is home to some of the most
+                        magnificent
+                        saltwater crocodiles in Sri Lanka. At Croc Kingdom, we offer a safe, thrilling, and
+                        unforgettable safari experience perfectly designed for both adventure seekers and wildlife
+                        enthusiasts.</p>
+                    <p data-t="about_p2">Our modern boats and experienced guides ensure that you get up close to
+                        nature's ancient reptiles
+                        while maintaining strict safety standards. Whether you're a nature photographer or looking for a
+                        family adventure, our safari is the perfect escape into the wild.</p>
+                    <div class="stats">
+                        <div class="stat-item glass-panel fade-up">
+                            <h3><i class="fas fa-shield-halved"></i> 100%</h3>
+                            <p data-t="stat_safe">Safe & Secure</p>
+                        </div>
+                        <div class="stat-item glass-panel fade-up delay-1">
+                            <h3><i class="fas fa-award"></i> 10+</h3>
+                            <p data-t="stat_exp">Years Exp.</p>
+                        </div>
+                        <div class="stat-item glass-panel fade-up delay-2">
+                            <h3><i class="fas fa-face-smile"></i> 5k+</h3>
+                            <p data-t="stat_happy">Happy Explorers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image slide-in-right">
+                    <img src="assets/modern_croc_kingdom_boat.png" alt="Safari Boat in Nilwala River">
+                    <div class="image-accent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet The Guides Section -->
+    <section id="guides" class="guides-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge center">Expert Team</div>
+                <h2 class="section-title">Meet Your <span class="highlight">Guides</span></h2>
+                <p class="section-subtitle">Over 10 years of experience navigating the Nilwala River with utmost safety.
+                </p>
+            </div>
+
+            <div class="guides-grid">
+                <div class="guide-card glassmorphism fade-up">
+                    <div class="guide-img-box">
+                        <div class="guide-avatar"><i class="fas fa-ship"></i></div>
+                        <div class="guide-experience">Captain</div>
+                    </div>
+                    <h3>Sujith PW</h3>
+                    <p>Expert Boat Driver & Captain. Ensures a safe and smooth journey across the Nilwala River.</p>
+                </div>
+                <div class="guide-card glassmorphism fade-up delay-1">
+                    <div class="guide-img-box">
+                        <div class="guide-avatar"><i class="fas fa-bullhorn"></i></div>
+                        <div class="guide-experience">Agent</div>
+                    </div>
+                    <h3>Nimesh PH</h3>
+                    <p>Tour Agent & Lead Instructor. He will guide you and provide all necessary instructions during the
+                        tour.</p>
+                </div>
+                <div class="guide-card glassmorphism fade-up delay-2">
+                    <div class="guide-img-box">
+                        <div class="guide-avatar"><i class="fas fa-headset"></i></div>
+                        <div class="guide-experience">Agent & Media</div>
+                    </div>
+                    <h3>Nethu PH</h3>
+                    <p>Tour Agent & Social Media Manager. Ready to assist you and share our beautiful Nilwala
+                        adventures!</p>
+                </div>
+                <div class="guide-card glassmorphism fade-up delay-3">
+                    <div class="guide-img-box">
+                        <div class="guide-avatar"><i class="fas fa-hands-helping"></i></div>
+                        <div class="guide-experience">Support & Media</div>
+                    </div>
+                    <h3>Achini HA</h3>
+                    <p>Social Media Cover & Support. Ensures your tour is perfectly documented and provides extra care.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview Section -->
+    <section id="services-preview" class="services-section" style="background: var(--bg-darker); padding: 5rem 0;">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge center" data-t="serv_badge">Premium Offerings</div>
+                <h2 class="section-title" data-t="serv_title">Our <span class="highlight">Services</span></h2>
+                <p class="section-subtitle">We provide high-quality services for our customers at the Nilwala riverbank
+                    in Matara.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card glassmorphism fade-up">
+                    <div class="service-icon"><i class="fas fa-ship"></i></div>
+                    <h3 data-t="serv_safari">Boat Safari</h3>
+                    <p data-t="serv_safari_desc">Explore the Nilwala river with our safe and comfortable boats.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card glassmorphism fade-up delay-1">
+                    <div class="service-icon"><i class="fas fa-eye"></i></div>
+                    <h3 data-t="serv_watch">Croc & Bird Watching</h3>
+                    <p data-t="serv_watch_desc">Get a chance to see the giants of the river and beautiful birds.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card glassmorphism fade-up delay-2">
+                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h3 data-t="serv_monkey">Monkey Feeding</h3>
+                    <p data-t="serv_monkey_desc">Enjoy feeding monkeys in their natural habitats along the river.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card glassmorphism fade-up delay-3">
+                    <div class="service-icon"><i class="fas fa-car"></i></div>
+                    <h3 data-t="serv_transfer">Free Pick & Drop</h3>
+                    <p data-t="serv_transfer_desc">We offer free transportation from your hotel within Matara city.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="gallery-preview section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge center" data-t="gallery">Gallery</div>
+                <h2 class="section-title">Capturing <span class="highlight">Nature</span></h2>
+                <p class="section-subtitle">A glimpse of the adventures awaiting you in the Nilwala river.</p>
+            </div>
+            <div class="gallery-grid-preview">
+                <!-- Linked Item 1: The Crocodile -->
+                <a href="gallery.html" class="gallery-item zoom-in" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                    <img src="assets/crocodile_close_1772769164834.png" alt="Massive Saltwater Crocodile">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">The Monarch</span>
+                        <h3 data-t="hero_title">Giants of the River</h3>
+                        <p data-t="croc_king_desc">The undisputed king of Nilwala</p>
+                    </div>
+                </a>
+                <!-- Linked Item 2: The White Bird (Kokku) -->
+                <a href="gallery.html" class="gallery-item zoom-in delay-1" data-tilt data-tilt-max="10"
+                    data-tilt-speed="400">
+                    <img src="assets/white_egret_1772771256035.png" alt="Majestic White Egret / Kokka">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Wildlife</span>
+                        <h3 data-t="stork_title">Graceful Storks (Kokku)</h3>
+                        <p data-t="stork_desc">Beautiful white birds hunting in the shallows</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="gallery.html" class="btn-primary" style="display: inline-block;" data-t="view_gallery">View
+                    Full Gallery <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge center" data-t="pack_badge">Pricing</div>
+                <h2 class="section-title">Safari <span class="highlight" data-t="packages">Packages</span></h2>
+                <p class="section-subtitle" data-t="pack_subtitle">Choose the perfect adventure tailored to your needs.
+                </p>
+            </div>
+            <div class="packages-grid" id="dynamic-packages">
+                <!-- Package 1 -->
+                <div class="package-card glassmorphism fade-up">
+                    <div class="package-icon"><i class="fas fa-ship"></i></div>
+                    <h3 data-t="pack_standard">Standard Safari</h3>
+                    <div class="price">Rs. 3,500<span>/person</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_1h">1 Hour Boat Ride</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_guide">Basic Guide Included</span>
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_jacket">Life Jackets Provided</span>
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_slots">Morning / Evening Slots</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn-outline w-100" data-t="book_standard">Book Standard</a>
+                </div>
+                <!-- Package 2 -->
+                <div class="package-card glassmorphism highlight-card fade-up delay-1">
+                    <div class="popular-badge"><i class="fas fa-star"></i> <span data-t="most_popular">Most
+                            Popular</span></div>
+                    <div class="package-icon"><i class="fas fa-crown"></i></div>
+                    <h3 data-t="pack_vip">VIP Sunset Cruise</h3>
+                    <div class="price">Rs. 6,000<span>/person</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_2h">2 Hours Guided Tour</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_nat">Expert Naturalist Guide</span>
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_refresh">Complimentary
+                                Refreshments</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_boat">Premium Seating Boat</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn-primary w-100" data-t="book_vip">Book VIP Now</a>
+                </div>
+                <!-- Package 3 -->
+                <div class="package-card glassmorphism fade-up delay-2">
+                    <div class="package-icon"><i class="fas fa-camera-retro"></i></div>
+                    <h3 data-t="pack_photo">Photography Tour</h3>
+                    <div class="price">Rs. 9,000<span>/person</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_3h">3 Hours Exclusive Hire</span>
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_close">Close-up Approaching</span>
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_prof">Ideal for Professionals</span>
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> <span data-t="feat_early">Early Morning Departure</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn-outline w-100" data-t="book_photo">Book Photo Tour</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog / Insights Section -->
+    <section id="insights" class="blog-section" style="background: var(--bg-dark);">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge center">Insights</div>
+                <h2 class="section-title">From The <span class="highlight">Wild</span></h2>
+                <p class="section-subtitle">Stories, facts, and updates directly from the Nilwala riverbank.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card glass-panel fade-up">
+                    <div class="blog-img">
+                        <img src="assets/crocodile_close_1772769164834.png" alt="Crocodile Teeth Facts">
+                        <span class="blog-tag">Biology</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Nature's Living Fossil</h3>
+                        <p>The Nile and Saltwater crocodiles (Crocodylus porosus) are apex predators that have remained
+                            virtually unchanged for 65 million years. In the Nilwala, these giants can reach lengths of
+                            over 17 feet.</p>
+                        <a href="wildlife.html">Explore Anatomy <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card glass-panel fade-up delay-1">
+                    <div class="blog-img">
+                        <img src="assets/flying_storks_1772771273573.png" alt="Stork Migration Nilwala">
+                        <span class="blog-tag">Ecology</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>The Seasonal Influx</h3>
+                        <p>Each year, Nilwala's wetlands host over 50 species of migratory birds, including the Painted
+                            Stork and White Egret. They utilize the river's fertile ecosystem as a critical stop during
+                            the late monsoon migration.</p>
+                        <a href="wildlife.html">View Bird Gallery <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card glass-panel fade-up delay-2">
+                    <div class="blog-img" style="background: url('assets/modern_croc_kingdom_boat.png') center/cover;">
+                        <img src="assets/modern_croc_kingdom_boat.png" alt="Eco Friendly Safari">
+                        <span class="blog-tag">Ethics</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Sustainable Safari</h3>
+                        <p>We employ low-emission propulsion and "No-Disturb" guiding protocols. Our mission is to
+                            balance thrilling wildlife encounters with the preservation of the Nilwala's sensitive
+                            riparian habitat.</p>
+                        <a href="services.html">Our Commitment <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge center" data-t="reviews">Reviews</div>
+                <h2 class="section-title">What Our <span class="highlight" data-t="explorers">Explorers</span> Say</h2>
+                <p class="section-subtitle" data-t="review_subtitle">Read real experiences from adventurers who joined
+                    our Nilwala safari.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card glassmorphism fade-up">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text" data-t="rev_1_text">"Absolutely mind-blowing! The guides were incredibly
+                        knowledgeable and safety
+                        was their top priority. Seeing those massive saltwater crocs in the golden hour light was a
+                        memory for a lifetime."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-info">
+                            <h4>James L.</h4>
+                            <span data-t="uk">United Kingdom</span>
+                        </div>
+                        <i class="fab fa-tripadvisor tripadvisor-icon"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card glassmorphism fade-up delay-1">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text" data-t="rev_2_text">"The highlight of our Sri Lanka trip! Croc Kingdom
+                        provides professional
+                        boats and the sunset tour was stunning. We saw over 6 massive crocodiles and beautiful flocks of
+                        storks. Worth every penny!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-info">
+                            <h4>Sarah & Mike</h4>
+                            <span data-t="aus">Australia</span>
+                        </div>
+                        <i class="fab fa-google google-icon"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card glassmorphism fade-up delay-2">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text" data-t="rev_3_text">"As a wildlife photographer, the photography package was
+                        exactly what I
+                        needed. The guide knew exactly where the big ones were hiding and positioned the boat perfectly
+                        for the light."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-info">
+                            <h4>Markus V.</h4>
+                            <span data-t="germany">Germany</span>
+                        </div>
+                        <i class="fas fa-camera retro-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-action text-center" style="margin-top: 3rem;">
+                <button id="btn-toggle-review" class="btn-outline">
+                    <i class="fas fa-edit" style="margin-right: 8px;"></i> Write a Review
+                </button>
+            </div>
+
+            <!-- Togglable Review Form (Refined to match screenshot) -->
+            <div id="review-form-container" class="review-card-container fade-up" style="display: none;">
+                <div class="review-card">
+                    <button type="button" id="btn-close-review" class="btn-close-review"
+                        style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 1.5rem; color: rgba(255,255,255,0.6); cursor: pointer; transition: 0.3s;"><i
+                            class="fas fa-times"></i></button>
+                    <h2 class="review-card-title">Share Your <span class="highlight-italic">Experience</span></h2>
+                    <p class="review-card-subtitle">We'd love to hear about your adventure with Croc Kingdom.</p>
+
+                    <form id="public-review-form" class="review-form-modern">
+                        <div class="rating-row">
+                            <span class="rating-label">Rate your safari:</span>
+                            <div class="stars-select" id="star-rating">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                            <input type="hidden" id="review-stars-value" value="5">
+                        </div>
+
+                        <div class="form-group-modern">
+                            <input type="text" id="review-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group-modern">
+                            <input type="text" id="review-country" placeholder="Your Country" required>
+                        </div>
+                        <div class="form-group-modern">
+                            <textarea id="review-message" rows="4" placeholder="Tell us about your experience..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" id="btn-submit-review" class="btn-submit-modern">
+                            Submit Review <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="faq-grid">
+                <div class="faq-text slide-in-left">
+                    <div class="faq-tag" data-t="faq_badge">FAQ</div>
+                    <h2 class="faq-main-title">Frequently Asked <span class="highlight-italic"
+                            data-t="faq_title_q">Questions</span></h2>
+                    <p class="faq-main-desc" data-t="faq_desc">Got questions before you book? Here are the most common
+                        things our
+                        adventurers ask us.</p>
+                    <a href="#contact" class="btn-capsule-outline" data-t="more_faq">
+                        Still have questions?
+                    </a>
+                </div>
+
+                <div class="faq-accordion slide-in-right">
+                    <!-- Q1 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 data-t="faq_q1">Is it safe to get close to the crocodiles?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p data-t="faq_a1">Absolutely. Your safety is our #1 priority. Our premium boats are
+                                designed specifically for crocodile safaris with high sides and stable decks. Our guides
+                                have over 10 years of experience navigating the Nilwala river.</p>
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 data-t="faq_q2">What is the best time to see crocodiles?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p data-t="faq_a2">The best sightings are usually early morning (7AM-9AM) or late afternoon
+                                (4PM-6PM) when crocodiles come out to sunbathe on the banks. Sunset tours offer magical
+                                lighting for photography.</p>
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 data-t="faq_q3">Do you provide life jackets?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p data-t="faq_a3">Yes, safety is mandatory. We provide high-quality life jackets for all
+                                passengers, including specialized sizes for children, which must be worn throughout the
+                                entire safari.</p>
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3 data-t="faq_q4">Can I bring my camera equipment?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <p data-t="faq_a4">Absolutely! Our boats are very stable and perfect for photography. We
+                                suggest bringing a lens with good zoom (200mm+) to capture detailed shots of the
+                                crocodiles and birds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-card-wrapper fade-up">
+                <div class="contact-form-side">
+                    <h2 class="form-title">Secure Your <span class="highlight-italic"
+                            data-t="book_title_part2">Safari</span></h2>
+                    <p class="form-subtitle" data-t="book_desc">Fill out the form below to request a booking. We will
+                        review and confirm
+                        your reservation shortly!</p>
+
+                    <form id="online-booking-form" class="booking-form-modern">
+                        <div class="form-row">
+                            <input type="text" id="book-name" placeholder="Your Name" data-t="form_name" required>
+                        </div>
+                        <div class="form-row half">
+                            <input type="tel" id="book-phone" placeholder="Phone / WhatsApp" data-t="form_phone"
+                                required>
+                            <input type="date" id="book-date" required>
+                        </div>
+                        <div class="form-row half">
+                            <select id="book-package" required>
+                                <option value="" disabled selected data-t="sel_package">Select Package</option>
+                                <option value="Standard Safari" data-t="pack_standard">Standard Safari</option>
+                                <option value="VIP Sunset Cruise" data-t="pack_vip">VIP Sunset Cruise</option>
+                                <option value="Photography Tour" data-t="pack_photo">Photography Tour</option>
+                                <option value="Other / Not Sure" data-t="other">Other / Not Sure</option>
+                            </select>
+                            <input type="number" id="book-guests" placeholder="No. of Guests" data-t="form_guests"
+                                min="1" max="50" required>
+                        </div>
+                        <div class="form-row">
+                            <textarea id="book-message" rows="3" placeholder="Any special requests? (Optional)"
+                                data-t="form_special"></textarea>
+                        </div>
+                        <button type="submit" id="btn-submit-booking" class="btn-submit-capsule" data-t="form_submit">
+                            Submit Booking Request <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info-side">
+                    <div class="info-group">
+                        <div class="info-card">
+                            <i class="fas fa-phone-alt contact-icon"></i>
+                            <div class="text-content">
+                                <h4>Call Us Anytime</h4>
+                                <span>+94 71 104 8555</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div class="text-content">
+                                <h4>Location</h4>
+                                <span>2J Thotupola road, Fort, Matara</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="instant-booking-card">
+                        <div class="wa-header">
+                            <i class="fab fa-whatsapp"></i>
+                            <h3>Instant Booking</h3>
+                        </div>
+                        <p>Need it faster? Chat directly with our agents!</p>
+                        <a href="https://wa.me/94711048555" target="_blank" class="btn-wa-pill">
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo-link">
+                        <img src="assets/logo_transparent.png" alt="Croc Kingdom Logo" class="footer-logo">
+                        <div class="logo-text">
+                            <h2>CROC <span>KINGDOM</span></h2>
+                            <span class="logo-slogan">Enter The Realm of the <span class="slogan-highlight">River</span>
+                                Giants</span>
+                        </div>
+                    </a>
+                    <p data-t="footer_desc">Experience the thrill of the wild with Matara's #1 premier crocodile boat
+                        safari. Safety,
+                        adventure, and memories guaranteed.</p>
+                </div>
+                <div class="footer-links">
+                    <h3 data-t="footer_links">Quick Links</h3>
+                    <ul>
+                        <li><a href="#home" data-t="nav_home">Home</a></li>
+                        <li><a href="services.html" data-t="nav_services">Services</a></li>
+                        <li><a href="#packages" data-t="nav_packages">Tour Packages</a></li>
+                        <li><a href="gallery.html" data-t="nav_gallery">Gallery</a></li>
+                        <li><a href="wildlife.html" data-t="nav_wildlife">Wildlife Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3 data-t="footer_follow">Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Croc Kingdom - Nilwala River Boat Safari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/94711048555" class="floating-whatsapp fade-in delay-3" target="_blank"
+        aria-label="Chat on WhatsApp"
+        style="position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Special Offer Popup Overlay -->
+    <div id="offer-popup" class="popup-overlay" style="display: none;">
+        <div class="popup-container glassmorphism">
+            <button id="close-popup" class="popup-close"><i class="fas fa-times"></i></button>
+            <div class="popup-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <div class="popup-content">
+                <h2 id="popup-title-display" data-t="special_offer">Special Offer!</h2>
+                <p id="popup-message-display">Loading special offers for you...</p>
+                <div style="margin-top: 1.5rem;">
+                    <a href="#" id="popup-btn-display" class="btn-primary" data-t="claim_now"
+                        style="justify-content: center; width: 100%;">Claim Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Language Switcher (Mobile Only) -->
+    <div class="floating-lang" id="mobile-lang-trigger" data-t="change_language" title="Change Language">
+        <i class="fas fa-language"></i>
+    </div>
+
+
+
+    <!-- Sticky Mobile Bottom Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+94711048555" class="msb-btn msb-call"><i class="fas fa-phone-alt"></i> <span
+                data-t="call">Call</span></a>
+        <a href="https://wa.me/94711048555?text=Hello,%20I'm%20interested%20in%20booking%20a%20Safari%20Tour!"
+            target="_blank" class="msb-btn msb-book"><i class="fas fa-calendar-check"></i> <span data-t="book_now">Book
+                Now</span></a>
+        <a href="https://wa.me/94711048555" target="_blank" class="msb-btn msb-wa"><i class="fab fa-whatsapp"></i>
+            <span data-t="chat">Chat</span></a>
+    </div>
+
+    <!-- Firebase SDK Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+
+    <!-- Vanilla Tilt JS for 3D interactions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

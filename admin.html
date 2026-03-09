@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Croc Kingdom</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cinzel:wght@500;600;700&family=Rye&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Admin Specific Style -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="admin-body">
+
+    <!-- Login Section (Initially Visible) -->
+    <div id="login-section" class="admin-auth-wrapper">
+        <div class="glass-panel auth-panel">
+            <div class="logo-text text-center" style="margin-bottom: 2rem;">
+                <h2 style="font-family: 'Rye', cursive; color: #FFD700; font-size: 2rem;">Croc<span> Kingdom</span></h2>
+                <div class="logo-slogan" style="color: var(--primary);">Admin Portal</div>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="admin-email" placeholder="admin@crockingdom.com" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="admin-password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-primary w-100" style="justify-content: center; margin-top: 1rem;">
+                    Sign In <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            <div id="login-error" class="error-msg"></div>
+        </div>
+    </div>
+
+    <!-- Dashboard Section (Initially Hidden) -->
+    <div id="dashboard-section" class="admin-dashboard-wrapper" style="display: none;">
+        <!-- Mobile Sidebar Toggle -->
+        <div id="admin-sidebar-open" class="admin-mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <div class="logo-link" style="justify-content: center;">
+                    <h3 style="color: #FFD700; font-family: 'Rye', cursive; font-size: 1.8rem; margin: 0;">CK Admin</h3>
+                </div>
+                <!-- Mobile Toggle inside sidebar for closing -->
+                <div id="admin-sidebar-toggle" class="admin-mobile-toggle"
+                    style="top: 15px; right: 15px; width: 40px; height: 40px; position: absolute;">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="admin-profile" style="text-align: center; margin-top: 2rem;">
+                    <div
+                        style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary), #ffce54); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; box-shadow: 0 10px 20px rgba(242, 100, 25, 0.3); border: 3px solid rgba(255,255,255,0.1);">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <p style="color: #fff; font-weight: 600; margin-bottom: 0;">Admin Portal</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Croc Kingdom</p>
+                </div>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="active" data-tab="tab-overview"><i class="fas fa-border-all"></i> <span>Overview</span></li>
+                <li data-tab="tab-bookings"><i class="fas fa-calendar-check"></i> <span>Bookings <span
+                            id="booking-badge"
+                            style="background: #e74c3c; color: white; padding: 2px 6px; border-radius: 10px; font-size: 0.7rem; margin-left: 5px; display: none;">New</span></span>
+                </li>
+                <li data-tab="tab-reviews"><i class="fas fa-star"></i> <span>Reviews <span id="review-badge"
+                            style="background: #f39c12; color: white; padding: 2px 6px; border-radius: 10px; font-size: 0.7rem; margin-left: 5px; display: none;">New</span></span>
+                </li>
+                <li data-tab="tab-gallery"><i class="fas fa-images"></i> <span>Gallery</span></li>
+                <li data-tab="tab-packages"><i class="fas fa-box-open"></i> <span>Packages</span></li>
+                <li data-tab="tab-offers"><i class="fas fa-gift"></i> <span>Popups & Offers</span></li>
+                <li data-tab="tab-news"><i class="fas fa-bullhorn"></i> <span>News Ticker</span></li>
+                <li data-tab="tab-services"><i class="fas fa-concierge-bell"></i> <span>Services</span></li>
+                <li data-tab="tab-status"><i class="fas fa-water"></i> <span>River Status</span></li>
+            </ul>
+            <div class="sidebar-footer" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 10px;">
+                <a href="index.html" class="btn-primary"
+                    style="width: 100%; justify-content: center; padding: 0.8rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; text-decoration: none; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-external-link-alt"></i> View Website
+                </a>
+                <button id="btn-logout" class="btn-secondary-light"
+                    style="width: 100%; justify-content: center; padding: 0.8rem;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Overview Tab -->
+            <div id="tab-overview" class="admin-tab active">
+                <div class="admin-header-flex">
+                    <div>
+                        <h2 class="section-title" style="font-size: 2.2rem;">Welcome Back 👋</h2>
+                        <p class="section-subtitle" style="text-align: left; margin: 0;">Here's what's happening with
+                            your website today.</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid-4">
+                    <div class="glass-panel stat-card text-center"
+                        style="padding: 2.5rem 2rem; border-radius: 20px; background: linear-gradient(145deg, rgba(20,20,22,0.8), rgba(15,15,18,0.9)); border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: -15px; right: -15px; font-size: 6rem; opacity: 0.05; color: var(--primary);">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <i class="fas fa-image"
+                            style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; display: block; position: relative; z-index: 1;"></i>
+                        <h3 style="font-size: 3rem; color: white; margin-bottom: 0; line-height: 1;" id="stat-photos">--
+                        </h3>
+                        <p
+                            style="color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin-top: 10px;">
+                            Total Photos</p>
+                    </div>
+                    <div class="glass-panel stat-card text-center"
+                        style="padding: 2.5rem 2rem; border-radius: 20px; background: linear-gradient(145deg, rgba(20,20,22,0.8), rgba(15,15,18,0.9)); border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: -15px; right: -15px; font-size: 6rem; opacity: 0.05; color: #28a745;">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <i class="fas fa-box-open"
+                            style="font-size: 2.5rem; color: #28a745; margin-bottom: 1rem; display: block; position: relative; z-index: 1;"></i>
+                        <h3 style="font-size: 3rem; color: white; margin-bottom: 0; line-height: 1;" id="stat-packages">
+                            --</h3>
+                        <p
+                            style="color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin-top: 10px;">
+                            Active Packages</p>
+                    </div>
+                    <div class="glass-panel stat-card text-center"
+                        style="padding: 2.5rem 2rem; border-radius: 20px; background: linear-gradient(145deg, rgba(20,20,22,0.8), rgba(15,15,18,0.9)); border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: -15px; right: -15px; font-size: 6rem; opacity: 0.05; color: #e67e22;">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <i class="fas fa-calendar-alt"
+                            style="font-size: 2.5rem; color: #e67e22; margin-bottom: 1rem; display: block; position: relative; z-index: 1;"></i>
+                        <h3 style="font-size: 3rem; color: white; margin-bottom: 0; line-height: 1;" id="stat-bookings">
+                            --</h3>
+                        <p
+                            style="color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin-top: 10px;">
+                            Total Bookings</p>
+                    </div>
+                    <div class="glass-panel stat-card text-center"
+                        style="padding: 2.5rem 2rem; border-radius: 20px; background: linear-gradient(145deg, rgba(20,20,22,0.8), rgba(15,15,18,0.9)); border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: -15px; right: -15px; font-size: 6rem; opacity: 0.05; color: #17a2b8;">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <i class="fas fa-broadcast-tower"
+                            style="font-size: 2.5rem; color: #17a2b8; margin-bottom: 1rem; display: block; position: relative; z-index: 1;"></i>
+                        <h3 style="font-size: 3rem; color: white; margin-bottom: 0; line-height: 1;" id="stat-news">--
+                        </h3>
+                        <p
+                            style="color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin-top: 10px;">
+                            News Alerts</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel"
+                    style="margin-top: 2.5rem; padding: 2rem; background: linear-gradient(90deg, rgba(242, 100, 25, 0.1), rgba(0,0,0,0.3)); border: 1px solid rgba(242, 100, 25, 0.2); border-radius: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 1.5rem;">
+                        <div
+                            style="width: 60px; height: 60px; background: rgba(242, 100, 25, 0.1); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--primary);">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div>
+                            <h4
+                                style="color: rgba(255,255,255,0.7); margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                                Live River Status</h4>
+                            <p style="color: white; margin: 0; font-size: 1.5rem; font-weight: 700;"
+                                id="overview-river-status">Loading...</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="document.querySelector('[data-tab=tab-status]').click()"
+                        style="padding: 10px 20px; font-size: 0.9rem;">
+                        Manage Status <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                    </button>
+                </div>
+
+                <!-- Website Analytics Chart -->
+                <div class="glass-panel"
+                    style="margin-top: 2.5rem; padding: 2.5rem; background: linear-gradient(145deg, rgba(20,20,22,0.8), rgba(15,15,18,0.9)); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.5rem; color: white; margin: 0;"><i class="fas fa-chart-area"
+                                style="color: var(--primary); margin-right: 10px;"></i> Activity & Analytics</h3>
+                        <select id="chartTimeline"
+                            style="background: rgba(0,0,0,0.5); color: white; border: 1px solid rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 5px; outline: none;">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30">Last 30 Days</option>
+                        </select>
+                    </div>
+                    <div style="width: 100%; height: 350px;">
+                        <canvas id="analyticsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Initial Setup Data Import (Visible only if database is empty) -->
+                <div id="import-data-section" class="glass-panel"
+                    style="margin-top: 2.5rem; padding: 2.5rem; background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(0,0,0,0.4)); border: 1px solid rgba(40, 167, 69, 0.3); display: none;">
+                    <div
+                        style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+                        <div>
+                            <h3 style="color: #28a745; margin-bottom: 10px; font-size: 1.5rem;"><i
+                                    class="fas fa-magic"></i> Import Existing Website Data</h3>
+                            <p style="color: var(--text-muted); margin: 0; font-size: 1.05rem;">We noticed your Admin
+                                Panel is completely new! Would you like to automatically import the packages, gallery
+                                photos, and news that are currently visible on your main website so you can edit and
+                                delete them?</p>
+                        </div>
+                        <button id="btn-import-initial" class="btn-primary"
+                            style="background: #28a745; border-color: #28a745; white-space: nowrap; box-shadow: 0 10px 20px -5px rgba(40, 167, 69, 0.4);"><i
+                                class="fas fa-cloud-download-alt"></i> Import Everything</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookings Tab -->
+            <div id="tab-bookings" class="admin-tab">
+                <div class="admin-header-flex">
+                    <h2 class="section-title">Manage Bookings</h2>
+                    <button class="btn-primary" id="btn-export-bookings" title="Export to CSV"><i
+                            class="fas fa-file-export"></i> Export</button>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem;">
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                        <button class="btn-secondary-light active filter-btn" data-filter="all">All</button>
+                        <button class="btn-secondary-light filter-btn" data-filter="pending">Pending</button>
+                        <button class="btn-secondary-light filter-btn" data-filter="confirmed">Confirmed</button>
+                        <button class="btn-secondary-light filter-btn" data-filter="completed">Completed</button>
+                    </div>
+
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; color: white; text-align: left;"
+                            id="bookings-table">
+                            <thead>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--primary);">
+                                    <th style="padding: 1rem;">Date</th>
+                                    <th style="padding: 1rem;">Client Name</th>
+                                    <th style="padding: 1rem;">Phone / WhatsApp</th>
+                                    <th style="padding: 1rem;">Package</th>
+                                    <th style="padding: 1rem;">Status</th>
+                                    <th style="padding: 1rem;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookings-list-container">
+                                <tr>
+                                    <td colspan="6"
+                                        style="padding: 3rem; text-align: center; color: var(--text-muted);">
+                                        <i class="fas fa-spinner fa-spin"></i> Loading Bookings...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div id="tab-reviews" class="admin-tab">
+                <div class="admin-header-flex">
+                    <h2 class="section-title">Manage Reviews</h2>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem;">
+                    <p class="text-muted" style="margin-bottom: 2rem; color: var(--text-muted);">Review user
+                        testimonials before they appear on your website. Approve genuine ones and delete spam.</p>
+
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                        <button class="btn-secondary-light active filter-rev-btn" data-filter="pending">Pending
+                            Approval</button>
+                        <button class="btn-secondary-light filter-rev-btn" data-filter="approved">Approved</button>
+                    </div>
+
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; color: white; text-align: left;"
+                            id="reviews-table">
+                            <thead>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--primary);">
+                                    <th style="padding: 1rem;">Date</th>
+                                    <th style="padding: 1rem;">Reviewer</th>
+                                    <th style="padding: 1rem;">Rating</th>
+                                    <th style="padding: 1rem;">Comment</th>
+                                    <th style="padding: 1rem;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reviews-list-container">
+                                <tr>
+                                    <td colspan="5"
+                                        style="padding: 3rem; text-align: center; color: var(--text-muted);">
+                                        <i class="fas fa-spinner fa-spin"></i> Loading Reviews...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Tab -->
+            <div id="tab-gallery" class="admin-tab">
+                <div class="admin-header-flex">
+                    <h2 class="section-title">Manage Gallery</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-secondary-light" id="btn-restore-photos"><i class="fas fa-undo"></i> Restore
+                            Old Photos</button>
+                        <button class="btn-primary" id="btn-add-photo"><i class="fas fa-plus"></i> Add New
+                            Photo</button>
+                    </div>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem;">
+                    <p class="text-muted" style="margin-bottom: 2rem; color: var(--text-muted);">Upload high-quality
+                        images to showcase your wildlife safari experience.</p>
+
+                    <!-- Form (Hidden by default) -->
+                    <div id="form-add-photo" class="admin-form-container" style="display: none; margin-bottom: 2.5rem;">
+                        <div class="form-group">
+                            <label>Photo Title</label>
+                            <input type="text" id="photo-title" placeholder="e.g., Giant Saltwater Croc">
+                        </div>
+                        <div class="form-group">
+                            <label>Subtitle / Category</label>
+                            <input type="text" id="photo-subtitle" placeholder="e.g., Nilwala River Spotting">
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Image</label>
+                            <input type="file" id="photo-file" accept="image/*" class="file-input"
+                                style="background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2);">
+                        </div>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <button class="btn-primary" id="btn-save-photo">Save & Upload</button>
+                            <button class="btn-secondary-light" id="btn-cancel-photo">Cancel</button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-preview-grid" id="admin-gallery-list">
+                        <!-- Items will be loaded here dynamically -->
+                        <div
+                            style="padding: 3rem; text-align: center; width: 100%; grid-column: 1 / -1; color: var(--text-muted); border: 1px dashed rgba(255,255,255,0.1); border-radius: 15px;">
+                            <i class="fas fa-spinner fa-spin"
+                                style="margin-right: 10px; font-size: 1.5rem; color: var(--primary);"></i>
+                            <br><br>Loading gallery from Firebase...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Packages Tab -->
+            <div id="tab-packages" class="admin-tab">
+                <div class="admin-header-flex">
+                    <h2 class="section-title">Manage Packages</h2>
+                    <button class="btn-primary" id="btn-add-package"><i class="fas fa-plus"></i> New Package</button>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem;">
+
+                    <!-- Add Package Form (Hidden initially) -->
+                    <div id="form-add-package" class="admin-form-container"
+                        style="display: none; margin-bottom: 2.5rem;">
+                        <div class="form-group">
+                            <label>Package Name</label>
+                            <input type="text" id="pack-name" placeholder="e.g. Standard Safari">
+                        </div>
+                        <div class="form-group">
+                            <label>Price (Rs.)</label>
+                            <input type="number" id="pack-price" placeholder="3500">
+                        </div>
+                        <div class="form-group">
+                            <label>Features (Comma separated)</label>
+                            <input type="text" id="pack-features"
+                                placeholder="1 Hour Ride, Guide Included, Life Jackets">
+                        </div>
+                        <div class="form-group">
+                            <label>Icon (FontAwesome Class)</label>
+                            <input type="text" id="pack-icon" placeholder="fa-ship" value="fa-ship">
+                        </div>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <button class="btn-primary" id="btn-save-package">Save Package</button>
+                            <button class="btn-secondary-light" id="btn-cancel-package">Cancel</button>
+                        </div>
+                    </div>
+
+                    <div class="packages-list-container">
+                        <div style="padding: 3rem; text-align: center; color: var(--text-muted);">
+                            <i class="fas fa-spinner fa-spin"></i> Loading Packages...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Tab -->
+            <div id="tab-news" class="admin-tab">
+                <div class="admin-header-flex" style="margin-bottom: 2rem;">
+                    <h2 class="section-title">Manage News Ticker</h2>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem;">
+                    <!-- Add News Form -->
+                    <div class="admin-form-container" style="margin-bottom: 2.5rem; padding: 2rem;">
+                        <h4 style="color: white; margin-bottom: 1rem; font-family: 'Outfit', sans-serif;"><i
+                                class="fas fa-plus-circle"></i> Add New Announcement</h4>
+                        <div style="display: flex; gap: 1rem; align-items: stretch; flex-wrap: wrap;">
+                            <input type="text" id="new-news-item"
+                                placeholder="e.g. 🔥 New Safari Package Available Now!"
+                                style="flex: 1; padding: 15px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; min-width: 250px;">
+                            <button class="btn-primary" id="btn-add-news" style="white-space: nowrap;"><i
+                                    class="fas fa-plus"></i> Add</button>
+                        </div>
+                    </div>
+
+                    <div class="packages-list-container" id="news-list-container"
+                        style="display: flex; flex-direction: column; gap: 0;">
+                        <!-- News items will load here -->
+                        <div style="padding: 3rem; text-align: center; color: var(--text-muted);">
+                            <i class="fas fa-spinner fa-spin"></i> Loading News...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popups & Offers Tab -->
+            <div id="tab-offers" class="admin-tab">
+                <div class="admin-header-flex">
+                    <h2 class="section-title">Special Offers & Popups</h2>
+                </div>
+
+                <div class="glass-panel" style="padding: 2rem;">
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Show a promotional popup when visitors
+                        first enter your website. Engage them with special packages or discounts.</p>
+
+                    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <form id="form-popup">
+                                <div class="form-group"
+                                    style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 15px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+                                    <div>
+                                        <h4 style="margin: 0; color: white;">Enable Popup</h4>
+                                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Turn the
+                                            promotion on or off</p>
+                                    </div>
+                                    <label class="switch"
+                                        style="position: relative; display: inline-block; width: 60px; height: 34px;">
+                                        <input type="checkbox" id="popup-enabled"
+                                            style="opacity: 0; width: 0; height: 0;">
+                                        <span class="slider round"
+                                            style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px;"></span>
+                                        <style>
+                                            .switch input:checked+.slider {
+                                                background-color: #2ecc71;
+                                            }
+
+                                            .switch input:focus+.slider {
+                                                box-shadow: 0 0 1px #2ecc71;
+                                            }
+
+                                            .switch input:checked+.slider:before {
+                                                transform: translateX(26px);
+                                            }
+
+                                            .slider:before {
+                                                position: absolute;
+                                                content: "";
+                                                height: 26px;
+                                                width: 26px;
+                                                left: 4px;
+                                                bottom: 4px;
+                                                background-color: white;
+                                                transition: .4s;
+                                                border-radius: 50%;
+                                            }
+                                        </style>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Promo Title</label>
+                                    <input type="text" id="popup-title" class="form-control"
+                                        placeholder="e.g. Special Weekend Discount!">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Message</label>
+                                    <textarea id="popup-message" class="form-control" rows="3"
+                                        placeholder="Get 20% off all boat safaris this weekend. Book now..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Call to Action Button Text</label>
+                                    <input type="text" id="popup-btn-text" class="form-control"
+                                        placeholder="e.g. Claim Offer">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Button Link URL (Optional - starts with # or http)</label>
+                                    <input type="text" id="popup-btn-link" class="form-control"
+                                        placeholder="e.g. #packages">
+                                </div>
+
+                                <button type="submit" class="btn-primary w-100"><i class="fas fa-save"></i> Save
+                                    Settings</button>
+                            </form>
+                        </div>
+
+                        <div
+                            style="flex: 1; min-width: 300px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 20px; border: 1px dashed rgba(255,255,255,0.2); padding: 2rem;">
+                            <!-- Live Preview Area -->
+                            <div id="popup-preview"
+                                style="background: linear-gradient(145deg, rgba(20,20,22,0.9), rgba(15,15,18,0.95)); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; text-align: center; padding: 2rem; width: 100%; max-width: 350px; position: relative;">
+                                <div
+                                    style="width: 60px; height: 60px; background: rgba(231, 76, 60, 0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem; color: #e74c3c; font-size: 1.5rem;">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <h3 id="prev-title" style="color: white; font-size: 1.4rem; margin-bottom: 10px;">
+                                    Preview Title</h3>
+                                <p id="prev-msg"
+                                    style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5;">
+                                    Your message will appear here. Keep it engaging!</p>
+                                <button id="prev-btn" class="btn-primary w-100"
+                                    style="padding: 10px; font-size: 0.9rem; justify-content: center;">Button
+                                    Text</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Tab -->
+            <div id="tab-services" class="admin-tab">
+                <div class="admin-header-flex">
+                    <h2 class="section-title">Manage Services</h2>
+                    <button class="btn-primary" id="btn-add-service"><i class="fas fa-plus"></i> New Service</button>
+                </div>
+
+                <div class="glass-panel" style="padding: 2.5rem;">
+                    <!-- Add Service Form (Hidden) -->
+                    <div id="form-add-service" class="admin-form-container"
+                        style="display: none; margin-bottom: 3rem; background: rgba(0,0,0,0.3); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+                        <h3 style="color: white; margin-bottom: 2rem;">Add New Service</h3>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>Service Name</label>
+                                <input type="text" id="service-name" class="form-control"
+                                    placeholder="e.g. Boat Safari">
+                            </div>
+                            <div class="form-group">
+                                <label>Icon (FontAwesome class)</label>
+                                <input type="text" id="service-icon" class="form-control" placeholder="e.g. fa-ship">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="service-description" class="form-control" rows="3"
+                                placeholder="Explain the service..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Image URL (Optional)</label>
+                            <input type="text" id="service-image" class="form-control"
+                                placeholder="URL to service image">
+                        </div>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <button class="btn-primary" id="btn-save-service">Save Service</button>
+                            <button class="btn-secondary-light" id="btn-cancel-service">Cancel</button>
+                        </div>
+                    </div>
+
+                    <div class="packages-list-container" id="admin-services-list">
+                        <!-- Services will be loaded here -->
+                        <div style="padding: 3rem; text-align: center; color: var(--text-muted);">
+                            <i class="fas fa-spinner fa-spin"></i> Loading Services...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- River Status Tab -->
+            <div id="tab-status" class="admin-tab">
+                <div class="admin-header-flex">
+                    <h2 class="section-title">River Safety Status</h2>
+                </div>
+
+                <div class="glass-panel" style="padding: 2.5rem;">
+                    <div
+                        style="background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.2)); padding: 2.5rem; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);">
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="color: white; margin-bottom: 0.5rem;"><i class="fas fa-broadcast-tower"
+                                    style="color: var(--primary); margin-right: 12px;"></i> Real-time Display Update
+                            </h3>
+                            <p style="color: var(--text-muted);">Change the river safety condition shown to all website
+                                visitors in real-time. This affects the status badge in the header.</p>
+                        </div>
+
+                        <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-end;">
+                            <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 300px;">
+                                <label style="font-weight: 600; color: #ddd; margin-bottom: 12px;">Select Current
+                                    River Condition</label>
+                                <select id="admin-river-status" class="form-control"
+                                    style="background: rgba(0,0,0,0.6); color: white; border: 1px solid rgba(255,255,255,0.15); padding: 18px 20px; border-radius: 12px; width: 100%; outline: none; font-size: 1.2rem; cursor: pointer;">
+                                    <option value="Good">🟢 Good (Safe for Safari)</option>
+                                    <option value="Caution">🟡 Caution (Limited Areas)</option>
+                                    <option value="Alert">🔴 Alert (High Water Level)</option>
+                                </select>
+                            </div>
+                            <button id="btn-save-status" class="btn-primary"
+                                style="height: 60px; padding: 0 35px; white-space: nowrap; font-size: 1.1rem; border-radius: 12px;">
+                                Push Real-time Update <i class="fas fa-sync-alt" style="margin-left: 12px;"></i>
+                            </button>
+                        </div>
+
+                        <p id="status-save-confirm"
+                            style="color: #2ecc71; margin-top: 1.5rem; font-size: 1rem; display: none; background: rgba(46, 204, 113, 0.1); padding: 12px 20px; border-radius: 30px; border: 1px solid rgba(46, 204, 113, 0.2);">
+                            <i class="fas fa-check-circle"></i> Homepage updated successfully!
+                        </p>
+                    </div>
+
+                    <div class="glass-panel"
+                        style="margin-top: 2.5rem; padding: 2rem; border-color: rgba(17, 162, 184, 0.3); background: rgba(23, 162, 184, 0.05);">
+                        <h4 style="color: #17a2b8; margin-bottom: 15px;"><i class="fas fa-info-circle"></i> Why update
+                            this?</h4>
+                        <p style="color: #bbb; margin: 0; line-height: 1.6;">Safety is our priority. Keeping the river
+                            status updated helps tourists know if it's safe to book a safari or if there are any
+                            limitations. When you click "Push Real-time Update", the change is visible to all visitors
+                            instantly without them needing to refresh the page.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase Compat Libraries (For local viewing without running a server) -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+
+    <!-- Chart.js for Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Admin Script -->
+    <script src="firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
